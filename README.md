@@ -1,6 +1,6 @@
-# Churn Predictor & Retention Agent
+# CHURN PREDICTOR & RETENTION AGENT
 
-A customer churn prediction dashboard combining an XGBoost classifier with an
+A service model churn prediction dashboard combining an XGBoost classifier with an
 LLM-powered retention agent, served with FastAPI and deployed via Docker on Railway.
 
 **🔗 Live App:** [Churn Intelligence Dashboard](https://churn-predictor-deploy-production.up.railway.app/)

@@ -9,7 +9,6 @@
 <style>
   :root {
     --bg: #0B1120;
-    --bg-2: #0F1729;
     --card: rgba(255,255,255,0.045);
     --card-border: rgba(255,255,255,0.09);
     --text: #EAF0FF;
@@ -44,12 +43,7 @@
     display: flex; align-items: center; justify-content: center;
     font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem;
   }
-  header h1 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin: 0;
-  }
+  header h1 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.2rem; margin: 0; }
   header .tagline { font-size: 0.82rem; color: var(--text-muted); }
 
   .layout {
@@ -70,100 +64,53 @@
     padding: 22px;
     backdrop-filter: blur(14px);
   }
-  .card h2 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
-    margin: 0 0 4px 0;
-  }
+  .card h2 { font-family: 'Outfit', sans-serif; font-size: 1rem; margin: 0 0 4px 0; }
   .card .sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px; }
 
-  /* Presets */
   .presets { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
   .preset-btn {
-    font-size: 0.78rem;
-    padding: 7px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--card-border);
-    background: rgba(255,255,255,0.03);
-    color: var(--text);
-    cursor: pointer;
+    font-size: 0.78rem; padding: 7px 12px; border-radius: 20px;
+    border: 1px solid var(--card-border); background: rgba(255,255,255,0.03);
+    color: var(--text); cursor: pointer;
   }
   .preset-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* Collapsible sections */
   .section { border: 1px solid var(--card-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
   .section-header {
-    padding: 12px 14px;
-    background: rgba(255,255,255,0.02);
-    cursor: pointer;
+    padding: 12px 14px; background: rgba(255,255,255,0.02); cursor: pointer;
     display: flex; justify-content: space-between; align-items: center;
     font-size: 0.85rem; font-weight: 600;
   }
   .section-header .chev { transition: transform 0.2s; color: var(--text-muted); }
   .section.open .chev { transform: rotate(180deg); }
-  .section-body {
-    display: none;
-    padding: 14px;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+  .section-body { display: none; padding: 14px; grid-template-columns: 1fr 1fr; gap: 12px; }
   .section.open .section-body { display: grid; }
 
-  .field label {
-    display: block;
-    font-size: 0.74rem;
-    color: var(--text-muted);
-    margin-bottom: 5px;
-  }
+  .field label { display: block; font-size: 0.74rem; color: var(--text-muted); margin-bottom: 5px; }
   .field input, .field select {
-    width: 100%;
-    padding: 8px 10px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--card-border);
-    border-radius: 7px;
-    color: var(--text);
-    font-size: 0.85rem;
+    width: 100%; padding: 8px 10px; background: rgba(255,255,255,0.04);
+    border: 1px solid var(--card-border); border-radius: 7px; color: var(--text); font-size: 0.85rem;
   }
   .field select option { background: #101828; }
 
   button.primary {
-    width: 100%;
-    margin-top: 16px;
-    padding: 13px;
+    width: 100%; margin-top: 16px; padding: 13px;
     background: linear-gradient(135deg, var(--accent), #8B7CFF);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 0.92rem;
-    cursor: pointer;
+    color: white; border: none; border-radius: 10px;
+    font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.92rem; cursor: pointer;
   }
   button.primary:hover { filter: brightness(1.08); }
   button.secondary {
-    width: 100%;
-    margin-top: 10px;
-    padding: 11px;
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent-soft);
-    border-radius: 10px;
-    font-size: 0.85rem;
-    cursor: pointer;
+    width: 100%; margin-top: 10px; padding: 11px; background: transparent;
+    color: var(--accent); border: 1px solid var(--accent-soft); border-radius: 10px;
+    font-size: 0.85rem; cursor: pointer;
   }
   button.secondary:hover { background: var(--accent-soft); }
   button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* Gauge */
   .gauge-wrap { display: flex; flex-direction: column; align-items: center; margin-bottom: 18px; }
   .gauge-value { font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 600; margin-top: -66px; }
-  .risk-band {
-    margin-top: 4px;
-    font-size: 0.8rem;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-weight: 600;
-  }
+  .risk-band { margin-top: 4px; font-size: 0.8rem; padding: 3px 12px; border-radius: 20px; font-weight: 600; }
   .band-low { background: rgba(52,211,153,0.15); color: var(--safe); }
   .band-medium { background: rgba(251,191,36,0.15); color: var(--watch); }
   .band-high { background: rgba(251,107,107,0.15); color: var(--high); }
@@ -175,25 +122,66 @@
 
   .empty-state { text-align: center; padding: 40px 10px; color: var(--text-muted); font-size: 0.85rem; }
 
-  .email-card {
+  .email-variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
     margin-top: 18px;
+    display: none;
+  }
+  .email-variants.visible { display: grid; }
+  @media (max-width: 900px) { .email-variants { grid-template-columns: 1fr; } }
+
+  .email-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    padding: 16px;
-    font-size: 0.85rem;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+  }
+  .email-card.voted { border-color: var(--accent); background: var(--accent-soft); }
+  .email-card .persona-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  .email-card .email-text {
+    font-size: 0.8rem;
     line-height: 1.5;
     white-space: pre-wrap;
-    display: none;
+    flex-grow: 1;
+    margin-bottom: 10px;
   }
-  .email-card.visible { display: block; }
-  .spinner {
-    display: none;
-    text-align: center;
+  .vote-btn {
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.78rem;
+    cursor: pointer;
+  }
+  .vote-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .vote-btn.voted-btn { background: var(--accent); border-color: var(--accent); color: white; }
+
+  .stats-bar {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-top: 10px;
+    display: none;
   }
+  .stats-bar.visible { display: block; }
+  .stats-bar .stat-line { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .stats-bar .stat-line:last-child { margin-bottom: 0; }
+
+  .spinner { display: none; text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 10px; }
   .spinner.visible { display: block; }
 </style>
 </head>
@@ -209,20 +197,19 @@
 
 <div class="layout">
 
-  <!-- Input panel -->
   <div class="card">
     <h2>Customer Profile</h2>
     <div class="sub">Fill in details manually, or load a sample customer.</div>
 
     <div class="presets">
-      <button type="button" class="preset-btn" onclick="loadPreset('high')">⚠ High-risk sample</button>
-      <button type="button" class="preset-btn" onclick="loadPreset('low')">✓ Loyal customer sample</button>
+      <button type="button" class="preset-btn" onclick="loadPreset('high')">Warning High-risk sample</button>
+      <button type="button" class="preset-btn" onclick="loadPreset('low')">Check Loyal customer sample</button>
     </div>
 
     <form id="customerForm">
 
       <div class="section open" data-section="demographics">
-        <div class="section-header" onclick="toggleSection(this)">Demographics <span class="chev">▾</span></div>
+        <div class="section-header" onclick="toggleSection(this)">Demographics <span class="chev">v</span></div>
         <div class="section-body">
           <div class="field"><label>Gender</label>
             <select name="gender"><option>Male</option><option>Female</option></select>
@@ -240,7 +227,7 @@
       </div>
 
       <div class="section" data-section="account">
-        <div class="section-header" onclick="toggleSection(this)">Account <span class="chev">▾</span></div>
+        <div class="section-header" onclick="toggleSection(this)">Account <span class="chev">v</span></div>
         <div class="section-body">
           <div class="field"><label>Tenure (months)</label><input type="number" name="tenure" value="12" min="0"></div>
           <div class="field"><label>Contract</label>
@@ -259,7 +246,7 @@
       </div>
 
       <div class="section" data-section="services">
-        <div class="section-header" onclick="toggleSection(this)">Services <span class="chev">▾</span></div>
+        <div class="section-header" onclick="toggleSection(this)">Services <span class="chev">v</span></div>
         <div class="section-body">
           <div class="field"><label>Phone Service</label><select name="PhoneService"><option>Yes</option><option>No</option></select></div>
           <div class="field"><label>Multiple Lines</label><select name="MultipleLines"><option>No</option><option>Yes</option><option>No phone service</option></select></div>
@@ -274,7 +261,7 @@
       </div>
 
       <div class="section" data-section="billing">
-        <div class="section-header" onclick="toggleSection(this)">Billing <span class="chev">▾</span></div>
+        <div class="section-header" onclick="toggleSection(this)">Billing <span class="chev">v</span></div>
         <div class="section-body">
           <div class="field"><label>Monthly Charges ($)</label><input type="number" step="0.01" name="MonthlyCharges" value="70.00"></div>
           <div class="field"><label>Total Charges ($)</label><input type="number" step="0.01" name="TotalCharges" value="840.00"></div>
@@ -285,7 +272,6 @@
     </form>
   </div>
 
-  <!-- Results panel -->
   <div class="card">
     <h2>Risk Assessment</h2>
     <div class="sub">Live churn probability and the factors driving it.</div>
@@ -307,15 +293,32 @@
           </defs>
         </svg>
         <div class="gauge-value mono" id="gaugeValue">0%</div>
-        <div class="risk-band" id="riskBand">—</div>
+        <div class="risk-band" id="riskBand">-</div>
       </div>
 
       <h2 style="margin-top:22px;">Top Risk Drivers</h2>
       <div id="driversList"></div>
 
-      <button type="button" class="secondary" id="emailBtn" onclick="generateEmail()">✉ Generate Retention Email</button>
-      <div class="spinner" id="emailSpinner">Writing email...</div>
-      <div class="email-card" id="emailCard"></div>
+      <button type="button" class="secondary" id="emailBtn" onclick="generateEmails()">Generate Retention Emails (A/B)</button>
+      <div class="spinner" id="emailSpinner">Writing two email variants...</div>
+
+      <div class="email-variants" id="emailVariants">
+        <div class="email-card" id="cardWarm">
+          <div class="persona-name" id="nameWarm">Warm & Personal</div>
+          <div class="email-text" id="textWarm"></div>
+          <button type="button" class="vote-btn" onclick="vote('warm')">I'd send this one</button>
+        </div>
+        <div class="email-card" id="cardProfessional">
+          <div class="persona-name" id="nameProfessional">Professional & Efficient</div>
+          <div class="email-text" id="textProfessional"></div>
+          <button type="button" class="vote-btn" onclick="vote('professional')">I'd send this one</button>
+        </div>
+      </div>
+
+      <div class="stats-bar" id="statsBar">
+        <div class="stat-line"><span>Warm & Personal</span><span class="mono" id="statWarm">0 votes</span></div>
+        <div class="stat-line"><span>Professional & Efficient</span><span class="mono" id="statProfessional">0 votes</span></div>
+      </div>
     </div>
   </div>
 
@@ -323,6 +326,7 @@
 
 <script>
 let lastResult = null;
+let hasVoted = false;
 
 function toggleSection(headerEl) {
   headerEl.parentElement.classList.toggle('open');
@@ -404,16 +408,19 @@ function renderResult(result, customerData) {
       </div>`;
   });
 
-  document.getElementById('emailCard').classList.remove('visible');
-  document.getElementById('emailCard').textContent = '';
+  document.getElementById('emailVariants').classList.remove('visible');
+  document.getElementById('cardWarm').classList.remove('voted');
+  document.getElementById('cardProfessional').classList.remove('voted');
+  hasVoted = false;
 }
 
-async function generateEmail() {
+async function generateEmails() {
   if (!lastResult) return;
   const btn = document.getElementById('emailBtn');
   const spinner = document.getElementById('emailSpinner');
   btn.disabled = true;
   spinner.classList.add('visible');
+  document.getElementById('emailVariants').classList.remove('visible');
 
   const cd = lastResult.customerData;
   const summary = `${cd.Contract} contract, ${cd.tenure} months tenure, $${cd.MonthlyCharges} monthly charge, ${cd.InternetService} internet, ${cd.OnlineSecurity === 'Yes' ? 'has' : 'no'} online security, pays by ${cd.PaymentMethod}.`;
@@ -432,9 +439,44 @@ async function generateEmail() {
 
   spinner.classList.remove('visible');
   btn.disabled = false;
-  const emailCard = document.getElementById('emailCard');
-  emailCard.textContent = data.email;
-  emailCard.classList.add('visible');
+
+  document.getElementById('nameWarm').textContent = data.warm.persona_name;
+  document.getElementById('textWarm').textContent = data.warm.email;
+  document.getElementById('nameProfessional').textContent = data.professional.persona_name;
+  document.getElementById('textProfessional').textContent = data.professional.email;
+
+  document.getElementById('emailVariants').classList.add('visible');
+  loadStats();
+}
+
+async function vote(persona) {
+  if (hasVoted) return;
+  hasVoted = true;
+
+  const res = await fetch('/track-preference', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ persona })
+  });
+  const data = await res.json();
+
+  document.getElementById('cardWarm').classList.toggle('voted', persona === 'warm');
+  document.getElementById('cardProfessional').classList.toggle('voted', persona === 'professional');
+
+  updateStatsDisplay(data.counts);
+  document.getElementById('statsBar').classList.add('visible');
+}
+
+async function loadStats() {
+  const res = await fetch('/stats');
+  const data = await res.json();
+  updateStatsDisplay(data.counts);
+  if (data.total_votes > 0) document.getElementById('statsBar').classList.add('visible');
+}
+
+function updateStatsDisplay(counts) {
+  document.getElementById('statWarm').textContent = counts.warm + ' votes';
+  document.getElementById('statProfessional').textContent = counts.professional + ' votes';
 }
 </script>
 
